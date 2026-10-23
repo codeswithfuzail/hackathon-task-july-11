@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AssetCare — Sign in</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen">
+
+<div class="min-h-screen grid grid-cols-1 md:grid-cols-2">
+
+  <!-- LEFT: Dark Visual Hub -->
+  <div class="relative hidden md:flex flex-col justify-between p-8 lg:p-16" style="background:#0b1e33;">
+    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80"
+         class="absolute inset-0 w-full h-full object-cover opacity-10 mix-blend-overlay" alt="" />
+    <div class="absolute inset-0 bg-grid opacity-40"></div>
+
+    <div class="relative z-10 flex items-center gap-3">
+      <div class="badge-square">AC</div>
+      <span class="text-white font-extrabold tracking-[0.22em] text-sm">ASSETCARE</span>
+    </div>
+
+    <div class="relative z-10 max-w-md">
+      <h1 class="font-display font-extrabold text-white leading-[1.05] text-5xl lg:text-6xl">
+        Scan.<br/>
+        Report.<br/>
+        <span style="color:#14b8a6;">Maintain.</span>
+      </h1>
+      <p class="text-[#a9bbcf] mt-6 text-[15px] leading-relaxed">
+        A single workspace for engineering teams to track equipment health, log field issues
+        by QR scan, and keep every maintenance record where the whole crew can see it.
+      </p>
+    </div>
+
+    <div class="relative z-10 space-y-3">
+      <div class="feature-pill flex items-center gap-3">
+        <span class="text-xl">📱</span>
+        <div>
+          <p class="text-white font-bold text-sm">QR asset access</p>
+          <p class="text-[#8ea2b8] text-xs">Scan a tag, open the full asset history instantly</p>
+        </div>
+      </div>
+      <div class="feature-pill flex items-center gap-3">
+        <span class="text-xl">📡</span>
+        <div>
+          <p class="text-white font-bold text-sm">Operational visibility</p>
+          <p class="text-[#8ea2b8] text-xs">Live condition and priority status across every site</p>
+        </div>
+      </div>
+      <div class="feature-pill flex items-center gap-3">
+        <span class="text-xl">🗓️</span>
+        <div>
+          <p class="text-white font-bold text-sm">Maintenance history</p>
+          <p class="text-[#8ea2b8] text-xs">Every repair, part, and technician logged in order</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Sleek Form Terminal -->
+  <div class="flex items-center justify-center p-6 sm:p-10" style="background:#f8fafc;">
+    <div class="w-full max-w-sm">
+
+      <div class="md:hidden flex items-center gap-2.5 mb-8 justify-center">
+        <div class="badge-square">AC</div>
+        <span class="font-extrabold tracking-[0.18em] text-sm" style="color:#0b1e33;">ASSETCARE</span>
+      </div>
+
+      <div class="card p-8 shadow-[0_20px_50px_-24px_rgba(15,31,48,.25)]">
+        <p class="text-xs font-bold tracking-[0.14em] text-[var(--ink-soft)] uppercase">SMIT Technology Campus</p>
+        <h2 class="text-2xl font-extrabold mt-1.5">Sign in to your workspace</h2>
+
+        <form id="login-form" class="mt-7 space-y-4">
+          <div>
+            <label class="text-xs font-bold text-[var(--ink-soft)] uppercase tracking-wide">Your name</label>
+            <input id="fullname" type="text" class="field-input mt-1.5" placeholder="e.g. Ayesha Siddiqui" value="Ayesha Siddiqui" />
+          </div>
+          <div>
+            <label class="text-xs font-bold text-[var(--ink-soft)] uppercase tracking-wide">Email address</label>
+            <input id="email" type="email" class="field-input mt-1.5" value="admin@assetcare.demo" />
+          </div>
+          <div>
+            <label class="text-xs font-bold text-[var(--ink-soft)] uppercase tracking-wide">Password</label>
+            <input id="password" type="password" class="field-input mt-1.5" value="admin123" />
+          </div>
+
+          <label class="flex items-center gap-2.5 pt-1 cursor-pointer select-none">
+            <input type="checkbox" id="remember" class="chk" checked />
+            <span class="text-sm text-[var(--ink-soft)]">Remember me on this device</span>
+          </label>
+
+          <p id="login-error" class="hidden text-sm font-semibold text-[var(--red-ink)] bg-[var(--red-bg)] rounded-lg px-3 py-2"></p>
+
+          <button type="submit" class="btn-primary w-full mt-2" style="background:#0b1e33;">
+            Login to AssetCare
+          </button>
+
+          <button type="button" onclick="window.location.href='signup.html'"
+                  class="w-full text-center text-sm font-semibold text-[var(--ink-soft)] hover:text-[var(--teal-dark)] transition-all pt-1">
+            Don't have an account? <span style="color:var(--teal-dark);">Sign up</span>
+          </button>
+        </form>
+      </div>
+
+      <div class="mt-6">
+        <p class="text-xs font-bold text-[var(--ink-soft)] uppercase tracking-wide mb-2.5">Quick demo access</p>
+        <div class="grid grid-cols-2 gap-3">
+          <button onclick="fillDemo('Ayesha Siddiqui','admin@assetcare.demo','admin123')"
+                  class="text-left rounded-xl p-3.5 border" style="background:var(--blue-bg); border-color:#bfdbfe;">
+            <p class="text-xs font-bold" style="color:var(--blue-ink);">👤 Administrator</p>
+            <p class="text-[11px] mt-1" style="color:#3b5a8a;">admin@assetcare.demo</p>
+            <p class="text-[11px]" style="color:#3b5a8a;">Password: admin123</p>
+          </button>
+          <button onclick="fillDemo('Hamza Tariq','tech@assetcare.demo','tech123')"
+                  class="text-left rounded-xl p-3.5 border" style="background:var(--orange-bg); border-color:#fed7aa;">
+            <p class="text-xs font-bold" style="color:var(--orange-ink);">🔧 Technician</p>
+            <p class="text-[11px] mt-1" style="color:#9a5024;">tech@assetcare.demo</p>
+            <p class="text-[11px]" style="color:#9a5024;">Password: tech123</p>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+  seedIfEmpty();
+
+  const existing = getAuth();
+  if (existing && existing.loggedIn) window.location.href = 'index.html';
+
+  function fillDemo(name, email, password) {
+    document.getElementById('fullname').value = name;
+    document.getElementById('email').value = email;
+    document.getElementById('password').value = password;
+  }
+
+  document.getElementById('login-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = document.getElementById('fullname').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const remember = document.getElementById('remember').checked;
+    const errBox = document.getElementById('login-error');
+    const btn = e.target.querySelector('button[type="submit"]');
+    const original = btn.innerText;
+
+    if (attemptLogin(name, email, password, remember)) {
+      btn.innerText = 'Signing in…';
+      btn.disabled = true;
+      setTimeout(() => { window.location.href = 'index.html'; }, 450);
+    } else {
+      errBox.textContent = 'Incorrect email or password. Try one of the demo accounts below.';
+      errBox.classList.remove('hidden');
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AssetCare — Dashboard</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-['Plus_Jakarta_Sans']">
+
+<div class="flex min-h-screen">
+  <div id="sidebar-root"></div>
+
+  <div class="flex-1 min-w-0">
+    <div id="topbar-root"></div>
+
+    <main class="p-4 sm:p-6 lg:p-8 max-w-[1400px] mx-auto">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h1 class="text-2xl font-extrabold">Dashboard</h1>
+          <p class="text-sm text-[var(--ink-soft)] mt-1">Live overview of asset health and open work.</p>
+        </div>
+      </div>
+
+      <!-- KPI row -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div class="card p-5">
+          <p class="text-xs font-bold text-[var(--ink-soft)] uppercase tracking-wide">Total Assets</p>
+          <p id="kpi-total-assets" class="text-2xl sm:text-3xl font-extrabold mt-1.5">—</p>
+        </div>
+        <div class="card p-5">
+          <p class="text-xs font-bold text-[var(--ink-soft)] uppercase tracking-wide">Open Issues</p>
+          <p id="kpi-open-issues" class="text-2xl sm:text-3xl font-extrabold mt-1.5 text-[var(--red-ink)]">—</p>
+        </div>
+        <div class="card p-5">
+          <p class="text-xs font-bold text-[var(--ink-soft)] uppercase tracking-wide">Critical Priority</p>
+          <p id="kpi-critical" class="text-2xl sm:text-3xl font-extrabold mt-1.5 text-[var(--orange-ink)]">—</p>
+        </div>
+        <div class="card p-5">
+          <p class="text-xs font-bold text-[var(--ink-soft)] uppercase tracking-wide">Scheduled</p>
+          <p id="kpi-scheduled" class="text-2xl sm:text-3xl font-extrabold mt-1.5 text-[var(--teal-dark)]">—</p>
+        </div>
+      </div>
+
+      <!-- Donuts -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
+        <div class="card p-5 sm:p-6">
+          <p class="font-bold mb-4">Condition Breakdown</p>
+          <div class="flex flex-col xs:flex-row items-center gap-6">
+            <div id="condition-donut" class="mx-auto sm:mx-0"></div>
+            <div id="condition-legend" class="flex-1 w-full"></div>
+          </div>
+        </div>
+        <div class="card p-5 sm:p-6">
+          <p class="font-bold mb-4">Priority Status Distribution</p>
+          <div class="flex flex-col xs:flex-row items-center gap-6">
+            <div id="priority-donut" class="mx-auto sm:mx-0"></div>
+            <div id="priority-legend" class="flex-1 w-full"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Queue grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="card p-6">
+          <div class="flex items-center justify-between mb-2">
+            <p class="font-bold">Recently reported issues</p>
+            <a href="issues.html" class="text-xs font-bold text-[var(--teal-dark)]">View all →</a>
+          </div>
+          <div id="recent-issues"></div>
+        </div>
+        <div class="card p-6">
+          <p class="font-bold mb-2">Upcoming maintenance schedules</p>
+          <div id="upcoming-maintenance"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+  seedIfEmpty();
+  requireAuth();
+  renderSidebar('dashboard');
+  renderTopbar('Search assets, issues, technicians…');
+  renderDashboard();
+</script>
+</body>
+</html>
